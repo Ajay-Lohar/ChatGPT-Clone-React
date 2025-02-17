@@ -5,7 +5,7 @@ export async function sendMsgToOpenAI(message) {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `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`
+            "Authorization": ``
         },
         body: JSON.stringify({
             model: "text-davinci-003",
@@ -21,3 +21,4 @@ export async function sendMsgToOpenAI(message) {
     const data = await response.json();
     return data.choices[0].text;
 }
+//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
