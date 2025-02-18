@@ -5,7 +5,8 @@ export const sendMsgToOpenAI = async (msg) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `sk-0KILfc5Lp8d4J12TpQCnT3B1bkFcYloBRPEkFUuLv13acpw`
+        Authorization: ``
+
       },
       body: JSON.stringify({
         model: "text-davinci-003",
