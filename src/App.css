@@ -123,11 +123,11 @@ body{
 
 .chats{
     overflow: hidden;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
     scroll-behavior: smooth;
     width: 100%;
     max-width: 70rem;
-    height: calc(100vh -17rem );
+    height: calc(100vh - 17rem );
 }
 .chat{
     margin: 1rem;

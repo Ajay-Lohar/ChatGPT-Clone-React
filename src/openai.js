@@ -1,24 +1,25 @@
-
-
-export async function sendMsgToOpenAI(message) {
-    const response = await fetch("https://api.openai.com/v1/completions", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": ``
-        },
-        body: JSON.stringify({
-            model: "text-davinci-003",
-            prompt: message,
-            temperature: 0.7,
-            max_tokens: 256,
-            top_p: 1,
-            frequency_penalty: 0,
-            presence_penalty: 0
-        })
-    });
-
-    const data = await response.json();
-    return data.choices[0].text;
-}
-//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
+export const sendMsgToOpenAI = async (msg) => {
+    const API_URL = "https://api.openai.com/v1/chat/completions";
+  
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `sk-0KILfc5Lp8d4J12TpQCnT3B1bkFcYloBRPEkFUuLv13acpw`
+      },
+      body: JSON.stringify({
+        model: "text-davinci-003",
+        prompt: msg,
+        temperature: 0.2,
+        max_tokens: 2048,
+        n: 1,
+        stop: null,
+      }),
+    };
+    try {
+      const response = await (await fetch(API_URL, requestOptions)).json();
+      return response?.choices[0]?.text;
+    } catch (error) {
+      console.log(error);
+    }
+  };
