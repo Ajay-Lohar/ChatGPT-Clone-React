@@ -123,7 +123,8 @@ body{
 
 .chats{
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: scroll ;
+    scrollbar-width: none;
     scroll-behavior: smooth;
     width: 100%;
     max-width: 70rem;
@@ -136,6 +137,7 @@ body{
     display: flex;
     align-items: flex-start;
     text-align: justify ;
+    justify-content: end
 }   
 
 .chatImg{

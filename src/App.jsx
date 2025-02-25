@@ -10,6 +10,7 @@ import userIcon from './assets/user-icon.png';
 import gptImgLogo from './assets/chatgptLogo.svg';
 import { sendMsgToOpenAI } from './openai';
 import { useEffect, useRef, useState } from 'react';
+ 
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
   }, [messages]);
 
   const handleSend = async () => {
+    const res = await  sendMsgToOpenAI(input);
+    console.log(res);
     if (!input.trim()) return;
 
     const text = input;
@@ -38,7 +41,6 @@ function App() {
 
     try {
       const res = await sendMsgToOpenAI(text);
-      console.log(res);
       setMessages(prevMessages => [
         ...prevMessages,
         { text, isBot: false },
@@ -91,14 +93,11 @@ function App() {
 
       <div className="main">
         <div className="chats">
-          <div className="chat">
-            <img className='chatImg' src={userIcon} alt="User" />
-            <p className='text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolore adipisci distinctio molestiae sed illum eligendi dolor. Nulla, quae adipisci!</p>
-          </div>
+          
 
           {messages.map((message, i) => (
-            <div key={i} className={message.isBot ? "chat bot" : "chat"}>
-              <img className='chatImg' src={message.isBot ? gptImgLogo : userIcon} alt="" />
+            <div key={i} className={message.isBot ? "chat bot " : "chat "}>
+              <img className='chatImg' src={message.isBot ? gptImgLogo : userIcon}  alt="" />
               <p className='text'>{message.text}</p>
             </div>
           ))}
